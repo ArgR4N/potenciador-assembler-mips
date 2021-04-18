@@ -1,10 +1,12 @@
 .data
     linea: .asciiz "\n"
-    promptnumber: .asciiz "Ingrese un numero(maximo: 46.340):\n"
-    promptquantity: .asciiz "ingrese la cantidad de potencias que quiere hacer con el numero (con un maximo de 29 veces):\n"
-    textoarreglo: .asciiz "se llego al limite del programa\n"
+    promptnumber: .asciiz "Ingrese un numero:\n"
+    promptquantity: .asciiz "ingrese la cantidad de potencias que quiere hacer con el numero:\n"
+    textoarreglo: .asciiz "se llego al limite del programa...\n"
     numprueba: .word 0
     resultado: .asciiz "las potencias son:\n"
+    reinicio: .asciiz "queres potenciar otro numero?(0 para no, 1 para si):\n"
+    final: .asciiz "hasta la proxima!\n"
 .text
 .globl main
 main:
@@ -54,5 +56,15 @@ arreglo:
     la $a0, textoarreglo
     syscall
 exit:
+    li $v0, 4
+    la $a0, reinicio
+    syscall
+    li $v0, 5
+    syscall
+    move $s0, $v0
+    bne $s0, $zero, main
+    li $v0, 4
+    la $a0, final
+    syscall
     li $v0, 10
     syscall
