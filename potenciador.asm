@@ -1,9 +1,8 @@
 .data
     linea: .asciiz "\n"
-    promptnumber: .asciiz "Ingrese un numero:\n"
-    promptquantity: .asciiz "ingrese la cantidad de potencias que quiere hacer con el numero:\n"
+    promptnumber: .asciiz "Ingrese un numero para potenciar:\n"
+    promptquantity: .asciiz "ingrese la cantidad de potencias que quiere hacer:\n"
     textoarreglo: .asciiz "se llego al limite del programa...\n"
-    numprueba: .word 0
     resultado: .asciiz "las potencias son:\n"
     reinicio: .asciiz "queres potenciar otro numero?(0 para no, 1 para si):\n"
     final: .asciiz "hasta la proxima!\n"
