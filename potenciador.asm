@@ -1,4 +1,7 @@
 .data
+    igual: .asciiz "="
+    potencia: .asciiz "^"
+    espacio: .asciiz " "
     linea: .asciiz "\n"
     promptnumber: .asciiz "Ingrese un numero para potenciar:\n"
     promptquantity: .asciiz "ingrese la cantidad de potencias que quiere hacer:\n"
@@ -22,14 +25,43 @@ main:
     li $v0, 5
     syscall
     move $t1, $v0
+    move $t5, $t1
     li $v0, 4
     la $a0, resultado
     syscall
+    li $v0, 4
+    la $a0, linea
+    syscall
+    j inicio
 inicio:
+    li $v0, 1
+    move $a0, $t2
+    syscall
+    li $v0, 4
+    la $a0, potencia
+    syscall
+    addi $t7, $zero, 1
+    sub $t6, $t1, $t7
+    sub $t5, $t1, $t6
+    li $v0, 1
+    move $a0, $t5
+    syscall
+    li $v0, 4
+    la $a0, espacio
+    syscall
+    li $v0, 4
+    la $a0, igual
+    syscall
+    li $v0, 4
+    la $a0, espacio
+    syscall
     li $v0, 1
     move $a0, $t0
     move $t4, $t0
     syscall #imprimir el numero
+    li $v0, 4
+    la $a0, linea
+    syscall
     mul $t0, $t0, $t2
     li $v0, 4
     la $a0, linea
@@ -41,9 +73,33 @@ loop:
     div $t3, $t0, $t4
     bne $t3, $t2, arreglo
     li $v0, 1
+    move $a0, $t2
+    syscall
+    li $v0, 4
+    la $a0, potencia
+    syscall
+    addi $t7, $t7, 1
+    sub $t6, $t1, $t7
+    sub $t5, $t1, $t6
+    li $v0, 1
+    move $a0, $t5
+    syscall
+    li $v0, 4
+    la $a0, espacio
+    syscall
+    li $v0, 4
+    la $a0, igual
+    syscall
+    li $v0, 4
+    la $a0, espacio
+    syscall
+    li $v0, 1
     move $a0, $t0
     move $t4, $t0
     syscall #iniciar el bucle y imprimir el numero
+    li $v0, 4
+    la $a0, linea
+    syscall
     mul $t0, $t0, $t2
     li $v0, 4
     la $a0, linea
