@@ -3,11 +3,11 @@
     potencia: .asciiz "^"
     espacio: .asciiz " "
     linea: .asciiz "\n"
-    promptnumber: .asciiz "Ingrese un numero para potenciar:\n"
-    promptquantity: .asciiz "ingrese la cantidad de potencias que quiere hacer:\n"
+    promptnumber: .asciiz "Ingrese un numero para potenciar: "
+    promptquantity: .asciiz "ingrese la cantidad de potencias que quiere hacer: "
     textoarreglo: .asciiz "se llego al limite del programa...\n"
     resultado: .asciiz "las potencias son:\n"
-    reinicio: .asciiz "queres potenciar otro numero?(0 para no, 1 para si):\n"
+    reinicio: .asciiz "queres potenciar otro numero?(0 para no, 1 para si): "
     final: .asciiz "hasta la proxima!\n"
 .text
 .globl main
